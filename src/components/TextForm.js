@@ -27,7 +27,11 @@ export default function TextForm(props) {
   };
 
   const handleClickConfirm = () => {
-    setPretext(text)
+    setPretext(text);
+  };
+  const handleClear = () => {
+    setPretext("");
+    setText("");
   };
 
   return (
@@ -58,18 +62,22 @@ export default function TextForm(props) {
         >
           Dollarise
         </button>
+        <button className="btn btn-danger m-2" onClick={handleClear}>
+          Clear
+        </button>
       </div>
       <div className="container my-3">
         <h3>Your Summary:</h3>
         <p>
           {text !== "" ? text.split(" ").length : 0} words and {text.length}{" "}
-          characters <br></br> {text !== "" ? (text.split(" ").length / 150).toFixed(2) : 0} minutes
+          characters <br></br>{" "}
+          {text !== "" ? (text.split(" ").length / 150).toFixed(2) : 0} minutes
           read
         </p>
-       
+
         <h3>Preview:</h3>
         <p>{text}</p>
-        <button className="btn btn-primary m-2" onClick={handleClickConfirm}>
+        <button className="btn btn-primary" onClick={handleClickConfirm}>
           Confirm
         </button>
       </div>
