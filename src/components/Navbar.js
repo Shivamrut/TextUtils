@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 export default function Navbar(props) {
-    console.log(props)
+  console.log(props);
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -52,13 +52,13 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes = {
-    title : PropTypes.string.isRequired,
-    page1: PropTypes.string,
-    page2 : PropTypes.string
-}
+  title: PropTypes.string.isRequired,
+  page1: PropTypes.string,
+  page2: PropTypes.string,
+};
 
 Navbar.defaultProps = {
-    // title : "Title",
-    page1: "Home",
-    page2: "About"
-}
+  // title : "Title",
+  page1: "Home",
+  page2: "About",
+};
