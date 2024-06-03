@@ -4,7 +4,10 @@ export default function Navbar(props) {
   console.log(props);
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav
+        className="navbar navbar-expand-lg bg-body-tertiary  "
+        data-bs-theme={props.mode}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -32,6 +35,25 @@ export default function Navbar(props) {
                   {props.page2}
                 </a>
               </li>
+              <li className="nav-item">
+                <div className="nav-link">
+                  <div className="form-check form-switch">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckDefault"
+                      onClick={props.toggleMode}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor="flexSwitchCheckDefault"
+                    >
+                      {(props.mode==="dark")?"LIGHTMODE":"DARKMODE"}
+                    </label>
+                  </div>
+                </div>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input
@@ -40,6 +62,7 @@ export default function Navbar(props) {
                 placeholder="Search"
                 aria-label="Search"
               />
+
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>

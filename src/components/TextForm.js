@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+  const showAlert = props.showAlert
   const [text, setText] = useState("");
   const [preText, setPretext] = useState("");
 
@@ -13,10 +14,12 @@ export default function TextForm(props) {
   const handleClickUpper = () => {
     let newText = text;
     setText(newText.toUpperCase());
+    // showAlert("Converted to Upper Case!","success")
   };
   const handleClickLower = () => {
     let newText = text;
     setText(newText.toLowerCase());
+    // showAlert("Converted to Lower Case!","success")
   };
   const handleClickDollar = () => {
     let newText = text
@@ -24,19 +27,34 @@ export default function TextForm(props) {
       .map((i) => (i += "$"))
       .join("");
     setText(newText);
+    // showAlert("Converted to Dollar Case!","success")
   };
 
   const handleClickConfirm = () => {
     setPretext(text);
+    // showAlert("Applied Changes!","success")
   };
   const handleClear = () => {
     setPretext("");
     setText("");
+    // showAlert("Cleared Text!","success")
   };
+
+  const handleCopy = async ()=>{
+    try {
+      if (!navigator.clipboard) {
+        throw new Error('Clipboard API not supported');
+      }
+      await navigator.clipboard.writeText(text);
+      showAlert("Copied to Clipboard!","success")
+    } catch (err) {
+      console.error('Failed to copy text:', err);
+    } 
+  }
 
   return (
     <>
-      <div className="container">
+      <div className="container" >
         <h3>{props.heading}</h3>
         <div className="form-group">
           <textarea
@@ -45,6 +63,10 @@ export default function TextForm(props) {
             rows="8"
             value={preText}
             onChange={handleText}
+            style={{
+              backgroundColor : props.mode==="dark"? "#313c3f": "#f2fafc",
+              color : props.mode==="light"? "#31363F": "white"
+            }}
           ></textarea>
         </div>
         <button className="btn btn-primary m-2" onClick={handleClickUpper}>
@@ -54,11 +76,14 @@ export default function TextForm(props) {
         <button className="btn btn-primary m-2" onClick={handleClickLower}>
           Lower Case
         </button>
+        <button className="btn btn-primary m-2" onClick={handleCopy}>
+          Copy Text
+        </button>
 
         <button
           className="btn btn-primary m-2"
           onClick={handleClickDollar}
-          disabled="true"
+          disabled={true}
         >
           Dollarise
         </button>
@@ -76,7 +101,7 @@ export default function TextForm(props) {
         </p>
 
         <h3>Preview:</h3>
-        <p>{text}</p>
+        <p>{text.length>0? text : "Enter text in the text box!"}</p>
         <button className="btn btn-primary" onClick={handleClickConfirm}>
           Confirm
         </button>
