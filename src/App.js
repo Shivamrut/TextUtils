@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -26,7 +27,7 @@ function App() {
       document.body.style.backgroundColor = "#31363F";
       document.body.style.color = "white";
       // showAlert("Enabled Dark mode!","success")
-      document.title = "TextUtils - Dark Mode";
+      // document.title = "TextUtils - Dark Mode";
       // setInterval(() => {
       //   document.title = "TextUtils is awesome!"
       // }, 1500);
@@ -38,7 +39,7 @@ function App() {
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
       // showAlert("Enabled Light mode!","success")
-      document.title = "TextUtils - Light Mode";
+      // document.title = "TextUtils - Light Mode";
     }
   };
 
@@ -53,7 +54,9 @@ function App() {
           toggleMode={handleToggle}
         />
         {/* <Navbar /> */}
-        <Alert alert={alert} />
+        <div style= {{height : "40px"}}>
+          <Alert alert={alert} />
+        </div>
         <Routes>
           <Route
             exact
@@ -67,6 +70,7 @@ function App() {
                 />
               </div>
             }
+            errorElement={ErrorPage}
           />
           <Route
             exact
@@ -76,6 +80,7 @@ function App() {
                 <About mode={mode} />
               </div>
             }
+            errorElement={ErrorPage}
           ></Route>
         </Routes>
       </Router>

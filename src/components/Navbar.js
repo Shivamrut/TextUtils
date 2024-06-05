@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <nav
@@ -81,8 +81,8 @@ Navbar.propTypes = {
   page2: PropTypes.string,
 };
 
-Navbar.defaultProps = {
-  // title : "Title",
-  page1: "Home",
-  page2: "About",
-};
+// Navbar.defaultProps = {
+//   // title : "Title",
+//   page1: "Home",
+//   page2: "About",
+// };

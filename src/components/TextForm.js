@@ -46,6 +46,7 @@ export default function TextForm(props) {
         throw new Error('Clipboard API not supported');
       }
       await navigator.clipboard.writeText(text);
+      document.getSelection().removeAllRanges()
       showAlert("Copied to Clipboard!","success")
     } catch (err) {
       console.error('Failed to copy text:', err);
@@ -69,40 +70,42 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary m-2" onClick={handleClickUpper}>
+        <button disabled={text.length===0} className="btn btn-primary m-2" onClick={handleClickUpper}>
           Upper Case
         </button>
 
-        <button className="btn btn-primary m-2" onClick={handleClickLower}>
+        <button disabled={text.length===0}  className="btn btn-primary m-2" onClick={handleClickLower}>
           Lower Case
         </button>
-        <button className="btn btn-primary m-2" onClick={handleCopy}>
+        <button disabled={text.length===0}  className="btn btn-primary m-2" onClick={handleCopy}>
           Copy Text
         </button>
 
         <button
+        
           className="btn btn-primary m-2"
           onClick={handleClickDollar}
           disabled={true}
         >
           Dollarise
         </button>
-        <button className="btn btn-danger m-2" onClick={handleClear}>
+        <button disabled={text.length===0}  className="btn btn-danger m-2" onClick={handleClear}>
+        
           Clear
         </button>
       </div>
       <div className="container my-3">
         <h3>Your Summary:</h3>
         <p>
-          {text.split("").filter(x => x!==" ").length} words and {text.length}{" "}
-          characters <br></br>{" "}
-          {(text.split("").filter(x => x!==" ").length / 150).toFixed(2) } minutes
+          {text.split(/\s+/).filter(x => x!=="").length} words and {text.length + " "}
+           characters <br></br>
+          {(text.split(/\s+/).filter(x => x!=="").length / 150).toFixed(2) } minutes
           read
         </p>
 
         <h3>Preview:</h3>
-        <p>{text.length>0? text : "Enter text in the text box!"}</p>
-        <button className="btn btn-primary" onClick={handleClickConfirm}>
+        <p>{text.length>0? text : "Nothing to preview!"}</p>
+        <button disabled={preText.length===0} className="btn btn-primary" onClick={handleClickConfirm}>
           Confirm
         </button>
       </div>
