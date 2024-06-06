@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
@@ -26,20 +25,10 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#31363F";
       document.body.style.color = "white";
-      // showAlert("Enabled Dark mode!","success")
-      // document.title = "TextUtils - Dark Mode";
-      // setInterval(() => {
-      //   document.title = "TextUtils is awesome!"
-      // }, 1500);
-      // setInterval(() => {
-      //   document.title = "Install TextUtils now!!!"
-      // },2000);
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
-      // showAlert("Enabled Light mode!","success")
-      // document.title = "TextUtils - Light Mode";
     }
   };
 
@@ -53,8 +42,7 @@ function App() {
           mode={mode}
           toggleMode={handleToggle}
         />
-        {/* <Navbar /> */}
-        <div style= {{height : "40px"}}>
+        <div style={{ height: "40px" }}>
           <Alert alert={alert} />
         </div>
         <Routes>

@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
-  // console.log(props);
   return (
     <>
       <nav
@@ -50,7 +49,7 @@ export default function Navbar(props) {
                       className="form-check-label"
                       htmlFor="flexSwitchCheckDefault"
                     >
-                      {(props.mode==="dark")?"LIGHTMODE":"DARKMODE"}
+                      {props.mode === "dark" ? "LIGHTMODE" : "DARKMODE"}
                     </label>
                   </div>
                 </div>
@@ -80,9 +79,3 @@ Navbar.propTypes = {
   page1: PropTypes.string,
   page2: PropTypes.string,
 };
-
-// Navbar.defaultProps = {
-//   // title : "Title",
-//   page1: "Home",
-//   page2: "About",
-// };

@@ -108,9 +108,10 @@ export default function About(props) {
 
               <p>
                 React.js is a powerful JavaScript library for building dynamic
-                user interfaces. It empowers developers to create <strong>reusable
-                components</strong>, which act like building blocks for your web page.
-                This <strong>component-based approach</strong> promotes clean and
+                user interfaces. It empowers developers to create{" "}
+                <strong>reusable components</strong>, which act like building
+                blocks for your web page. This{" "}
+                <strong>component-based approach</strong> promotes clean and
                 maintainable code, making it easier to manage and update complex
                 applications.
               </p>
@@ -119,9 +120,9 @@ export default function About(props) {
                 React also utilizes a concept called the virtual DOM. This
                 virtual representation of the real DOM allows React to
                 efficiently identify changes and update only the necessary parts
-                of the webpage. This leads to a <strong>smooth and responsive user
-                experience</strong>, ensuring your web application feels fast and
-                interactive.
+                of the webpage. This leads to a{" "}
+                <strong>smooth and responsive user experience</strong>, ensuring
+                your web application feels fast and interactive.
               </p>
 
               <p>
