@@ -125,7 +125,7 @@ export default function About(props) {
                 your web application feels fast and interactive.
               </p>
 
-              <p>
+              <div>
                 Furthermore, React offers unique features that enhance
                 development:
                 <ul>
@@ -140,7 +140,7 @@ export default function About(props) {
                     about how data changes and affects the application state.
                   </li>
                 </ul>
-              </p>
+              </div>
 
               <p>
                 These powerful features, combined with a vast ecosystem of tools
@@ -176,7 +176,7 @@ export default function About(props) {
                 a passion for software development.
               </p>
 
-              <div class="contact-info">
+              <div className="contact-info">
                 <h3>Contact</h3>
                 <ul>
                   <li>
@@ -189,7 +189,7 @@ export default function About(props) {
                   </li>
                 </ul>
               </div>
-              <div class="education">
+              <div className="education">
                 <h3>Education</h3>
                 <ul>
                   <li>
@@ -205,7 +205,7 @@ export default function About(props) {
                   </li>
                 </ul>
               </div>
-              <div class="projects">
+              <div className="projects">
                 <h3>Projects</h3>
                 <ul>
                   <li>
